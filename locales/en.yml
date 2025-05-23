@@ -1,5 +1,3 @@
 en:
   theme_metadata:
-    description: ''
-    settings:
-      example_setting: A description of a setting.
+    description: "Adds a dropdown menu to the header, giving users quick access to personal settings and pages."

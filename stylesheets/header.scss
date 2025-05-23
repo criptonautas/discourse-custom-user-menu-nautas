@@ -1,0 +1,14 @@
+// Hide avatar on the notifications menu toggle
+.d-header-icons li.user-menu-panel {
+  img.avatar {
+    display: none;
+  }
+}
+
+// Hide the profile tab from the notifications menu
+#user-menu-button-profile {
+  display: none;
+}
+.user-menu.revamped .bottom-tabs {
+  border-top: none;
+}
