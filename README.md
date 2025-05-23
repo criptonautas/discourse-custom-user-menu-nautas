@@ -1,5 +1,27 @@
-# User Menu
+# Custom User Menu
 
-**Theme Summary**
+Adds a dropdown menu to the header, giving users quick access to personal settings and pages.
 
-For more information, please see: **url to meta topic**
+## name
+
+`custom-user-menu`
+
+## template
+
+```scss
+// Button
+.header-dropdown-toggle.custom-user-menu {
+}
+
+// Panel
+.custom-user-menu-content {
+  .fk-d-menu {
+    &__inner-content {
+    }
+    &__user-info {
+    }
+    &__profile-tab {
+    }
+  }
+}
+```
