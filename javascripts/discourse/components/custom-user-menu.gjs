@@ -12,6 +12,7 @@ export default class CustomUserMenu extends Component {
     <li class="header-dropdown-toggle custom-user-menu">
       <DMenu
         @placement="bottom-end"
+        @offset="0"
         {{!-- @modalForMobile={{true}} --}}
         @identifier="custom-user-menu"
         @triggerClass="icon btn-flat"
