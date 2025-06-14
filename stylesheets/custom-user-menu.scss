@@ -1,4 +1,5 @@
 .custom-user-menu-content {
+  --emoji-size: 1.35em;
   .fk-d-menu {
     &__inner-content {
       border-radius: var(--d-border-radius-large);
@@ -72,6 +73,17 @@
       padding: 1rem 0;
       margin: 0;
       border-top: 1px solid var(--primary-low);
+      li.set-user-status {
+        img.emoji {
+          font-size: var(--d-sidebar-section-link-icon-size);
+          width: var(--emoji-size);
+          height: var(--emoji-size);
+          margin-right: var(--d-sidebar-section-link-prefix-margin-right);
+          margin-left: calc(
+            1em - var(--emoji-size)
+          ); // adjust spacing without moving label
+        }
+      }
       li.enabled .d-icon {
         color: var(--tertiary);
       }
