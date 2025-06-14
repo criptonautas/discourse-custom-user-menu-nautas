@@ -1,10 +1,14 @@
+// Notifications Menu
 // Hide avatar on the notifications menu toggle
 .d-header-icons li.user-menu-panel {
   img.avatar {
     display: none;
   }
 }
-
+// Hide status bubble
+#current-user .user-status-background {
+  display: none;
+}
 // Hide the profile tab from the notifications menu
 #user-menu-button-profile {
   display: none;
@@ -12,18 +16,17 @@
 .user-menu.revamped .bottom-tabs {
   border-top: none;
 }
+// Round the top-right border of the notifications menu
+.user-menu.revamped {
+  border-top-right-radius: var(--d-border-radius-large);
+}
 
+// User Menu
 // Show menu above the header
 .fk-d-menu.custom-user-menu-content {
   z-index: z("header") + 1;
 }
-
 // Adjust focus style for the avatar
 .header-dropdown-toggle.custom-user-menu .icon:focus {
   background-color: transparent;
-}
-
-// Round the top-right border of the notifications menu
-.user-menu.revamped {
-  border-top-right-radius: var(--d-border-radius-large);
 }

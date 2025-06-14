@@ -1,6 +1,7 @@
 import Component from "@glimmer/component";
 import { on } from "@ember/modifier";
 import { service } from "@ember/service";
+import UserStatusBubble from "discourse/components/header/user-dropdown/user-status-bubble";
 import UserMenuProfileTabContent from "discourse/components/user-menu/profile-tab-content";
 import avatar from "discourse/helpers/bound-avatar-template";
 import DMenu from "float-kit/components/d-menu";
@@ -38,6 +39,12 @@ export default class CustomUserMenu extends Component {
 
         </:content>
       </DMenu>
+      {{#if this.currentUser.status}}
+        <UserStatusBubble
+          @timezone={{this.currentUser.user_option.timezone}}
+          @status={{this.currentUser.status}}
+        />
+      {{/if}}
     </li>
   </template>
 }
