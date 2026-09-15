@@ -1,10 +1,17 @@
 import Component from "@glimmer/component";
+import { fn } from "@ember/helper";
 import { on } from "@ember/modifier";
 import { service } from "@ember/service";
 import UserStatusBubble from "discourse/components/header/user-dropdown/user-status-bubble";
 import UserMenuProfileTabContent from "discourse/components/user-menu/profile-tab-content";
-import avatar from "discourse/helpers/bound-avatar-template";
-import DMenu from "float-kit/components/d-menu";
+import DMenu from "discourse/float-kit/components/d-menu";
+import dBoundAvatarTemplate from "discourse/ui-kit/helpers/d-bound-avatar-template";
+
+function closeOnLinkClick(close, event) {
+  if (event.target.closest("a[href]")) {
+    close();
+  }
+}
 
 export default class CustomUserMenu extends Component {
   @service currentUser;
@@ -20,20 +27,25 @@ export default class CustomUserMenu extends Component {
         @groupIdentifier="custom-header"
       >
         <:trigger>
-          {{avatar this.currentUser.avatar_template "medium"}}
+          {{dBoundAvatarTemplate this.currentUser.avatar_template "medium"}}
         </:trigger>
 
         <:content as |args|>
 
           <div class="fk-d-menu__user-info">
-            {{avatar this.currentUser.avatar_template "medium"}}
+            {{dBoundAvatarTemplate this.currentUser.avatar_template "medium"}}
             {{#if this.currentUser.name}}
               <span class="name">{{this.currentUser.name}}</span>
             {{/if}}
             <span class="username">{{this.currentUser.username}}</span>
           </div>
 
-          <div {{on "click" args.close}} class="fk-d-menu__profile-tab">
+          {{! Delegate clicks from the nested links, including keyboard activation. }}
+          {{! eslint-disable-next-line ember/template-no-invalid-interactive }}
+          <div
+            {{on "click" (fn closeOnLinkClick args.close)}}
+            class="fk-d-menu__profile-tab"
+          >
             <UserMenuProfileTabContent @closeUserMenu={{args.close}} />
           </div>
 

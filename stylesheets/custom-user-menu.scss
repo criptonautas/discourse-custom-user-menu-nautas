@@ -1,5 +1,6 @@
 .custom-user-menu-content {
   --emoji-size: 1.35em;
+
   .fk-d-menu {
     &__inner-content {
       border-radius: var(--d-border-radius-large);
@@ -7,14 +8,17 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
+
       ul {
         list-style: none;
         margin: 0;
       }
+
       li {
         display: flex;
         align-items: center;
       }
+
       a,
       button {
         display: inline-flex;
@@ -26,14 +30,15 @@
         margin: 0 1rem;
         padding: 0 var(--d-sidebar-row-horizontal-padding);
         color: var(--d-sidebar-link-color);
-        transition: background-color 0.25s;
         border-radius: var(--d-nav-pill-border-radius);
         transition: background-color 0.25s;
+
         .d-icon {
           font-size: var(--d-sidebar-section-link-icon-size);
           color: var(--d-sidebar-link-icon-color);
           margin-right: var(--d-sidebar-section-link-prefix-margin-right);
         }
+
         &:hover {
           background: var(--d-sidebar-highlight-background);
           color: var(--d-sidebar-highlight-color);
@@ -51,18 +56,22 @@
       grid-template-columns: 3rem 1fr;
       grid-template-rows: auto 1fr;
       column-gap: 1rem;
+
       .avatar {
         grid-area: avatar;
       }
+
       .name {
         grid-area: name;
         font-weight: 700;
         color: var(--d-sidebar-active-color);
       }
+
       .username {
         grid-area: username;
         font-size: var(--font-down-1);
         color: var(--d-sidebar-active-color);
+
         &::before {
           content: "@";
         }
@@ -73,6 +82,7 @@
       padding: 1rem 0;
       margin: 0;
       border-top: 1px solid var(--primary-low);
+
       li.set-user-status {
         img.emoji {
           font-size: var(--d-sidebar-section-link-icon-size);
@@ -84,12 +94,15 @@
           ); // adjust spacing without moving label
         }
       }
+
       li.enabled .d-icon {
         color: var(--tertiary);
       }
+
       li.preferences {
         padding-bottom: 1rem;
       }
+
       li.logout {
         padding-top: 1rem;
         border-top: 1px solid var(--primary-low);
