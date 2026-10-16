@@ -2,9 +2,11 @@ import Component from "@glimmer/component";
 import { fn } from "@ember/helper";
 import { on } from "@ember/modifier";
 import { service } from "@ember/service";
+import PluginOutlet from "discourse/components/plugin-outlet";
 import UserStatusBubble from "discourse/components/header/user-dropdown/user-status-bubble";
 import UserMenuProfileTabContent from "discourse/components/user-menu/profile-tab-content";
 import DMenu from "discourse/float-kit/components/d-menu";
+import lazyHash from "discourse/helpers/lazy-hash";
 import dBoundAvatarTemplate from "discourse/ui-kit/helpers/d-bound-avatar-template";
 
 function closeOnLinkClick(close, event) {
@@ -39,6 +41,11 @@ export default class CustomUserMenu extends Component {
             {{/if}}
             <span class="username">{{this.currentUser.username}}</span>
           </div>
+
+          <PluginOutlet
+            @name="custom-user-menu-after-user-info"
+            @outletArgs={{lazyHash closeMenu=args.close}}
+          />
 
           {{! Delegate clicks from the nested links, including keyboard activation. }}
           {{! eslint-disable-next-line ember/template-no-invalid-interactive }}
