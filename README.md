@@ -1,12 +1,26 @@
-# Custom User Menu
+# Custom User Menu (Nautas)
 
-Adds a dropdown menu to the header, giving users quick access to personal settings and pages.
+**ENGLISH** | [ESPAÑOL](README.es.md)
 
-## name
+Maintained by Criptonautas. Not affiliated with or endorsed by Discourse (Civilized Discourse Construction Kit, Inc.).
 
-`custom-user-menu`
+Theme component that adds a dropdown menu to the header avatar, giving users quick access to personal settings and pages. Fork of [manuelkostka/custom-user-menu](https://gitlab.com/manuelkostka/discourse/components/custom-user-menu) by Manuel Kostka.
 
-## template
+## What the fork adds
+
+One plugin outlet between the user info and the profile links:
+
+| Outlet | `@outletArgs` |
+|---|---|
+| `custom-user-menu-after-user-info` | `closeMenu`: closes the menu (call it when a link inside your connector is followed) |
+
+Other components render into it with a connector at `javascripts/discourse/connectors/custom-user-menu-after-user-info/<name>.gjs`. Without this fork installed the connector simply never renders. The change is kept small so it can go upstream.
+
+## Install
+
+Admin → Customize → Themes → Components → Install → From a git repository, with this repo's URL. Then add the component to the themes that should use it. It replaces the upstream Custom User Menu: don't install both.
+
+## Styling
 
 ```scss
 // Button
@@ -25,3 +39,9 @@ Adds a dropdown menu to the header, giving users quick access to personal settin
   }
 }
 ```
+
+## License
+
+MIT (upstream: Manuel Kostka). Modifications © 2026 Criptonautas. See [LICENSE](LICENSE).
+
+Text of this README under [CC BY-NC-SA 4.0](CC-BY-NC-SA-4.0.txt).
