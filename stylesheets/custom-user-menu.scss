@@ -52,9 +52,11 @@
       display: grid;
       grid-template-areas:
         "avatar name"
-        "avatar username";
+        "avatar username"
+        "avatar group"
+        "karma karma";
       grid-template-columns: 3rem 1fr;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto auto auto auto;
       column-gap: 1rem;
 
       .avatar {
@@ -74,6 +76,43 @@
 
         &::before {
           content: "@";
+        }
+      }
+
+      .primary-group {
+        grid-area: group;
+        min-width: 0;
+        overflow: hidden;
+        font-size: var(--font-down-1);
+        color: var(--primary-medium);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .monthly-karma {
+        grid-area: karma;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        margin-top: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        border-left: 3px solid var(--tertiary);
+        border-radius: var(--d-border-radius);
+        background: var(
+          --d-sidebar-highlight-background,
+          var(--primary-very-low)
+        );
+        line-height: var(--line-height-medium);
+
+        strong {
+          font-size: var(--font-down-1);
+          color: var(--d-sidebar-active-color, var(--primary));
+        }
+
+        span {
+          font-size: var(--font-up-1);
+          font-weight: 700;
+          color: var(--tertiary);
         }
       }
     }

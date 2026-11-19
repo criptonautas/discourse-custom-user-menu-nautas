@@ -1,3 +1,4 @@
 en:
+  monthly_karma: "monthly karma"
   theme_metadata:
     description: "Adds a dropdown menu to the header, giving users quick access to personal settings and pages."

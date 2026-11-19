@@ -8,6 +8,8 @@ Theme component that adds a dropdown menu to the header avatar, giving users qui
 
 ## What the fork adds
 
+Under the @username, the member's primary group (hidden when they have none) and their monthly karma from [discourse-gamification](https://github.com/discourse/discourse-gamification) (hidden when the plugin is not installed).
+
 One plugin outlet between the user info and the profile links:
 
 | Outlet | `@outletArgs` |

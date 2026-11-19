@@ -8,6 +8,8 @@ Componente de tema que añade un menú desplegable al avatar de la cabecera, con
 
 ## Qué añade el fork
 
+Bajo el @usuario, el grupo principal del miembro (oculto si no tiene) y su karma mensual de [discourse-gamification](https://github.com/discourse/discourse-gamification) (oculto si el plugin no está instalado).
+
 Un punto de inserción (plugin outlet) entre los datos del usuario y los enlaces del perfil:
 
 | Outlet | `@outletArgs` |

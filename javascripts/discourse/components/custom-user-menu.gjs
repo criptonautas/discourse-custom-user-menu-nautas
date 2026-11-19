@@ -2,12 +2,13 @@ import Component from "@glimmer/component";
 import { fn } from "@ember/helper";
 import { on } from "@ember/modifier";
 import { service } from "@ember/service";
-import PluginOutlet from "discourse/components/plugin-outlet";
 import UserStatusBubble from "discourse/components/header/user-dropdown/user-status-bubble";
+import PluginOutlet from "discourse/components/plugin-outlet";
 import UserMenuProfileTabContent from "discourse/components/user-menu/profile-tab-content";
 import DMenu from "discourse/float-kit/components/d-menu";
 import lazyHash from "discourse/helpers/lazy-hash";
 import dBoundAvatarTemplate from "discourse/ui-kit/helpers/d-bound-avatar-template";
+import UserInfoExtras from "./user-info-extras";
 
 function closeOnLinkClick(close, event) {
   if (event.target.closest("a[href]")) {
@@ -40,6 +41,7 @@ export default class CustomUserMenu extends Component {
               <span class="name">{{this.currentUser.name}}</span>
             {{/if}}
             <span class="username">{{this.currentUser.username}}</span>
+            <UserInfoExtras />
           </div>
 
           <PluginOutlet
