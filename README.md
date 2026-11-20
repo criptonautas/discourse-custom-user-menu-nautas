@@ -8,13 +8,12 @@ Theme component that adds a dropdown menu to the header avatar, giving users qui
 
 ## What the fork adds
 
-Under the @username, the member's primary group (hidden when they have none) and their monthly karma from [discourse-gamification](https://github.com/discourse/discourse-gamification) (hidden when the plugin is not installed).
+Two plugin outlets, one under the @username and one between the user info and the profile links:
 
-One plugin outlet between the user info and the profile links:
-
-| Outlet | `@outletArgs` |
-|---|---|
-| `custom-user-menu-after-user-info` | `closeMenu`: closes the menu (call it when a link inside your connector is followed) |
+| Outlet                             | `@outletArgs`                                                                                             |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `custom-user-menu-after-username`  | `user`: the current user; `closeMenu`: closes the menu. Renders inside the user info, under the @username |
+| `custom-user-menu-after-user-info` | `closeMenu`: closes the menu (call it when a link inside your connector is followed)                      |
 
 Other components render into it with a connector at `javascripts/discourse/connectors/custom-user-menu-after-user-info/<name>.gjs`. Without this fork installed the connector simply never renders. The change is kept small so it can go upstream.
 

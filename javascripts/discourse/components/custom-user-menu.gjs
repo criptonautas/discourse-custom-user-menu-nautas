@@ -8,7 +8,6 @@ import UserMenuProfileTabContent from "discourse/components/user-menu/profile-ta
 import DMenu from "discourse/float-kit/components/d-menu";
 import lazyHash from "discourse/helpers/lazy-hash";
 import dBoundAvatarTemplate from "discourse/ui-kit/helpers/d-bound-avatar-template";
-import UserInfoExtras from "./user-info-extras";
 
 function closeOnLinkClick(close, event) {
   if (event.target.closest("a[href]")) {
@@ -41,7 +40,15 @@ export default class CustomUserMenu extends Component {
               <span class="name">{{this.currentUser.name}}</span>
             {{/if}}
             <span class="username">{{this.currentUser.username}}</span>
-            <UserInfoExtras />
+            <div class="fk-d-menu__user-info-extra">
+              <PluginOutlet
+                @name="custom-user-menu-after-username"
+                @outletArgs={{lazyHash
+                  user=this.currentUser
+                  closeMenu=args.close
+                }}
+              />
+            </div>
           </div>
 
           <PluginOutlet

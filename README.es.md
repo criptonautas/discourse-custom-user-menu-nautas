@@ -8,13 +8,12 @@ Componente de tema que añade un menú desplegable al avatar de la cabecera, con
 
 ## Qué añade el fork
 
-Bajo el @usuario, el grupo principal del miembro (oculto si no tiene) y su karma mensual de [discourse-gamification](https://github.com/discourse/discourse-gamification) (oculto si el plugin no está instalado).
+Dos puntos de inserción (plugin outlets), uno bajo el @usuario y otro entre los datos del usuario y los enlaces del perfil:
 
-Un punto de inserción (plugin outlet) entre los datos del usuario y los enlaces del perfil:
-
-| Outlet | `@outletArgs` |
-|---|---|
-| `custom-user-menu-after-user-info` | `closeMenu`: cierra el menú (llámalo cuando se siga un enlace dentro de tu conector) |
+| Outlet                             | `@outletArgs`                                                                                                        |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `custom-user-menu-after-username`  | `user`: el usuario actual; `closeMenu`: cierra el menú. Se muestra dentro de los datos del usuario, bajo el @usuario |
+| `custom-user-menu-after-user-info` | `closeMenu`: cierra el menú (llámalo cuando se siga un enlace dentro de tu conector)                                 |
 
 Otros componentes se insertan con un conector en `javascripts/discourse/connectors/custom-user-menu-after-user-info/<nombre>.gjs`. Sin este fork instalado el conector simplemente no se muestra. El cambio es pequeño para poder proponerlo upstream.
 
